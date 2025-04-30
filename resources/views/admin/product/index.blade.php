@@ -18,43 +18,43 @@
     <div class="card">
         <table class="table table-houver table-bordered">
             <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Criado em</th>
-                    <th>Descrição</th>
-                    <th>Categoria</th>
-                    <th>Slug</th>
-                    <th class="text-center">Preço</th>
-                    <th class="text-center">Ação</th>
-                </tr>
+            <tr>
+                <th>#</th>
+                <th>Criado em</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Slug</th>
+                <th class="text-center">Preço</th>
+                <th class="text-center">Ação</th>
+            </tr>
             </thead>
             <tbody>
-                @forelse ($products as $product)
-                    <tr>
-                        <td class="align-middle">{{ $product->id }}</td>
-                        <td class="align-middle">{{ date( 'd/m/Y h:i:s' , strtotime($product->created_at)) }}</td>
-                        <td class="align-middle">{{ $product->description }}</td>
-                        <td class="align-middle">{{ $product->category }}</td>
-                        <td class="align-middle">{{ $product->slug }}</td>
-                        <td class="align-middle" style="text-align: right;">{{ formatQtd($product->price) }}</td>
-                        <td class="text-center align-middle">
-                            <a class="btn btn-info" href="{{ route('product.show', $product->id) }}">
-                                Ver
-                            </a>
-                            <a class="btn btn-primary" href="{{ route('product.edit', $product->id) }}">
-                                Editar
-                            </a>
-                            <button type="button" class="btn btn-danger"
-                                onclick="confirmDelete({{ $product->id }}, '{{ $product->description }}')">
-                                Excluir
-                            </button>
-                        </td>
-                    </tr>
-                @empty
-                    <tr>
-                        <td colspan="7" class="text-center">Nenhum produto cadastrado!</td>
-                    </tr>
-                @endforelse
+            @forelse ($products as $product)
+                <tr>
+                    <td class="align-middle">{{ $product->id }}</td>
+                    <td class="align-middle">{{ date( 'd/m/Y h:i:s' , strtotime($product->created_at)) }}</td>
+                    <td class="align-middle">{{ $product->description }}</td>
+                    <td class="align-middle">{{ $product->category }}</td>
+                    <td class="align-middle">{{ $product->slug }}</td>
+                    <td class="align-middle" style="text-align: right;">{{ formatQtd($product->price) }}</td>
+                    <td class="text-center align-middle">
+                        <a class="btn btn-info" href="{{ route('product.show', $product->id) }}">
+                            Ver
+                        </a>
+                        {{--                            <a class="btn btn-primary" href="{{ route('product.edit', $product->id) }}">--}}
+                        {{--                                Editar--}}
+                        {{--                            </a>--}}
+                        {{--                            <button type="button" class="btn btn-danger"--}}
+                        {{--                                onclick="confirmDelete({{ $product->id }}, '{{ $product->description }}')">--}}
+                        {{--                                Excluir--}}
+                        {{--                            </button>--}}
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="7" class="text-center">Nenhum produto cadastrado!</td>
+                </tr>
+            @endforelse
             </tbody>
         </table>
     </div>
