@@ -41,13 +41,10 @@
                         <a class="btn btn-info" href="{{ route('product.show', $product->id) }}">
                             Ver
                         </a>
-                        {{--                            <a class="btn btn-primary" href="{{ route('product.edit', $product->id) }}">--}}
-                        {{--                                Editar--}}
-                        {{--                            </a>--}}
-                        {{--                            <button type="button" class="btn btn-danger"--}}
-                        {{--                                onclick="confirmDelete({{ $product->id }}, '{{ $product->description }}')">--}}
-                        {{--                                Excluir--}}
-                        {{--                            </button>--}}
+                        <button type="button" class="btn btn-danger"
+                                onclick="confirmDelete({{ $product->id }}, '{{ $product->description }}')">
+                            Excluir
+                        </button>
                     </td>
                 </tr>
             @empty
